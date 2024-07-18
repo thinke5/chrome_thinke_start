@@ -13,7 +13,7 @@ export default function ListItem(props: { idx: number; idy: number; onClick?: ()
   return (
     <div
       ref={$div!}
-      class="px-6 py-4 text-dark dark:text-gray-2 b-b-1 b-solid b-0 dark:b-gray-7/60 b-gray/40"
+      class="px-6 py-4 text-dark dark:text-gray-2 b-b-1 b-solid b-0 dark:b-gray-7/60 b-gray/40 cursor-pointer"
       classList={{
         'bg-light/30 dark:bg-bluegray-6/60': isSelect(),
       }}

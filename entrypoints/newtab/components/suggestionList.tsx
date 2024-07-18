@@ -5,21 +5,19 @@ import ListItem from './ListItem';
 /** 建议列表 */
 export default function SuggestionList(props: { list?: string[] }) {
   return (
-    <Transition name="slide-fade2">
-      <Show when={props.list?.length} fallback={<div />}>
-        <div class="bg-lightblue-2/68 dark:bg-dark/68 backdrop-blur-sm rd-xl shadow-xl flex flex-col overflow-hidden h-max max-h-[--lh] flex-[0_1_100%]">
-          <TransitionGroup name="group-item">
-            <For each={props.list}>
-              {(item, i) => (
-                <ListItem idy={i()} idx={1} onClick={() => startSearch(item)}>
-                  <span class="text-base text-oneline text-ellipsis overflow-hidden block w-full">{item}</span>
-                </ListItem>
-              )}
-            </For>
-          </TransitionGroup>
-        </div>
-      </Show>
-    </Transition>
+    <div
+      class="bg-lightblue-2/68 dark:bg-dark/68 backdrop-blur-sm rd-xl shadow-xl flex flex-col overflow-hidden h-max max-h-[--lh] w-200 listBox"
+      classList={{ active: !!props.list?.length }}>
+      <TransitionGroup name="group-item">
+        <For each={props.list}>
+          {(item, i) => (
+            <ListItem idy={i()} idx={1} onClick={() => startSearch(item)}>
+              <span class="text-base text-oneline text-ellipsis overflow-hidden block w-full">{item}</span>
+            </ListItem>
+          )}
+        </For>
+      </TransitionGroup>
+    </div>
   );
 }
 

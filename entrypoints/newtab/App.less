@@ -21,32 +21,41 @@
     }
   }
 }
-
 @time: 0.3s;
 @x: 10%;
+.listBox {
+  transform-origin: top center;
+  transition: opacity @time, transform @time;
+  opacity: 0;
+  transform: scaleY(0);
+  &.active {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
 // 过度动画
 .slide-fade-enter-active,
-.slide-fade-exit-active,
-.slide-fade2-enter-active,
-.slide-fade2-exit-active {
+.slide-fade-exit-active {
+  transform-origin: top center;
   transition: opacity @time, transform @time;
 }
 .slide-fade-enter,
 .slide-fade-exit-to {
-  transform: translateX(-@x);
+  transform: scaleY(0);
   opacity: 0;
 }
 .slide-fade-enter {
-  transform: translateX(-@x);
+  transform: translateX(1);
 }
-.slide-fade2-enter,
-.slide-fade2-exit-to {
-  transform: translateX(@x);
-  opacity: 0;
-}
-.slide-fade2-enter {
-  transform: translateX(@x);
-}
+// .slide-fade2-enter,
+// .slide-fade2-exit-to {
+//   transform: translateX(@x);
+//   opacity: 0;
+// }
+// .slide-fade2-enter {
+//   transform: translateX(@x);
+// }
 
 @y: 30px;
 

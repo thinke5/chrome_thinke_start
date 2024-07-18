@@ -3,12 +3,10 @@ import unocss from 'unocss/vite';
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
- 
-
   outDir: 'dist',
   modules: ['@wxt-dev/module-solid'],
   manifest: {
-    permissions: ['bookmarks'],
+    permissions: ['bookmarks', 'history'],
     host_permissions: ['*://*.google.com/*', '*://*.bing.com/*', '*://*.baidu.com/*'],
     icons: {
       16: 'icon/16.webp',
@@ -18,5 +16,4 @@ export default defineConfig({
       128: 'icon/128.webp',
     },
   },
-   
 });

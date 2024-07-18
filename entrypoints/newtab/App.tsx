@@ -4,13 +4,14 @@ import { bingImg } from '@/utils/bingImg';
 import { createSignal } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { onClickOutside } from 'solidjs-use';
-import { Bookmarks } from 'wxt/browser';
+import { Bookmarks, History } from 'wxt/browser';
 import './App.less';
 import BookmarkList from './components/bookmarkList';
 import EngineSelect from './components/engineSelect';
 import SuggestionList from './components/suggestionList';
 import { IEngines, searchEngineMap } from './searchEngineMap';
 import SearchLimit from './components/searchLimit';
+import HistoryList from './components/historyList';
 
 type ICtxData = {
   curEngine: IEngines;
@@ -54,6 +55,10 @@ function App() {
     )
   );
 
+  const [historyList] = createResource(searchText, (query: string) =>
+    bgAjax<History.HistoryItem[]>('historySearch', query)
+  );
+
   const [$conent, set$Conent] = createSignal<HTMLDivElement>();
   let firstClick = true;
   onClickOutside($conent, () => {
@@ -75,6 +80,9 @@ function App() {
       setData('y', Math.max(-1, data.y - 1));
     },
     ArrowLeft() {
+      if (data.y === -1) {
+        return;
+      }
       if (bookmarkList()?.length === -1) {
         setData('x', 1);
       } else {
@@ -83,10 +91,13 @@ function App() {
       }
     },
     ArrowRight() {
+      if (data.y === -1) {
+        return;
+      }
       if (suggestionList()?.length === -1) {
         setData('x', 0);
       } else {
-        setData('x', Math.min(1, data.x + 1));
+        setData('x', Math.min(2, data.x + 1));
         setData('y', Math.min(suggestionList()?.length || -1, data.y));
       }
     },
@@ -152,11 +163,14 @@ function App() {
             </div>
           </div>
           <div
-            classList={{ 'h-12!': Boolean(bookmarkList()?.length || suggestionList()?.length) }}
+            classList={{
+              'h-12!': Boolean(bookmarkList()?.length || suggestionList()?.length || historyList()?.length),
+            }}
             class="w-2 transition-height-200 h-0"></div>
-          <div class="w-60vw min-w-600px @[--lh:160] max-h-[--lh] flex overflow-hidden">
+          <div class="w-max @[--lh:160] max-h-[--lh] flex overflow-hidden">
             <BookmarkList list={bookmarkList()} />
             <SuggestionList list={suggestionList()} />
+            <HistoryList list={historyList()} />
           </div>
         </div>
       </main>
