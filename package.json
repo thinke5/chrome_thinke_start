@@ -1,0 +1,35 @@
+{
+  "name": "信鸽起始页",
+  "description": "信鸽起始页",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "compile": "tsc --noEmit",
+    "postinstall": "wxt prepare"
+  },
+  "dependencies": {
+    "@ark-ui/solid": "^3.5.0",
+    "cheerio": "1.0.0-rc.12",
+    "dayjs": "^1.11.11",
+    "solid-js": "^1.8.18",
+    "solid-transition-group": "^0.2.3",
+    "solidjs-use": "^2.3.0"
+  },
+  "devDependencies": {
+    "@iconify-json/bi": "^1.1.23",
+    "@iconify-json/tabler": "^1.1.117",
+    "@thinke/unocss-wml-preset": "^2.0.4",
+    "@wxt-dev/module-solid": "^1.1.1",
+    "less": "^4.2.0",
+    "typescript": "^5.5.3",
+    "unocss": "^0.61.3",
+    "wxt": "^0.18.14"
+  }
+}

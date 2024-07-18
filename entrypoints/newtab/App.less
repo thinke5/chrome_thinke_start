@@ -1,0 +1,71 @@
+.searchMain {
+  transition: backdrop-filter 0.5s;
+}
+
+.searchBox {
+  --base-size: 4rem;
+  height: var(--base-size);
+  > div {
+    --size: var(--base-size);
+
+    opacity: 0.35;
+  }
+}
+.pageFocus {
+  .searchMain {
+    backdrop-filter: blur(10px);
+  }
+  .searchBox {
+    > div {
+      opacity: 1;
+    }
+  }
+}
+
+@time: 0.3s;
+@x: 10%;
+// 过度动画
+.slide-fade-enter-active,
+.slide-fade-exit-active,
+.slide-fade2-enter-active,
+.slide-fade2-exit-active {
+  transition: opacity @time, transform @time;
+}
+.slide-fade-enter,
+.slide-fade-exit-to {
+  transform: translateX(-@x);
+  opacity: 0;
+}
+.slide-fade-enter {
+  transform: translateX(-@x);
+}
+.slide-fade2-enter,
+.slide-fade2-exit-to {
+  transform: translateX(@x);
+  opacity: 0;
+}
+.slide-fade2-enter {
+  transform: translateX(@x);
+}
+
+@y: 30px;
+
+.group-item-enter {
+  opacity: 0;
+  transform: translateY(@y);
+}
+.group-item-exit-to {
+  transform: translateY(-@y);
+}
+.group-item-exit {
+  opacity: 0.05;
+}
+.group-item-enter-active {
+  transition: opacity @time, transform @time;
+}
+.group-item-exit-active {
+  position: absolute;
+  z-index: -1;
+  left: -100%;
+  transition: all 3ms;
+}
