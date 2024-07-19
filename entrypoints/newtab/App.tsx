@@ -107,6 +107,8 @@ function App() {
       } else {
         if (data.x === 0) {
           window.open(bookmarkList()![data.y].url, '_top');
+        } else if (data.x === 2) {
+          window.open(historyList()![data.y].url, '_top');
         } else {
           startSearch(suggestionList()![data.y]);
         }
