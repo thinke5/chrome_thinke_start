@@ -168,8 +168,9 @@ function App() {
             classList={{
               'h-12!': Boolean(bookmarkList()?.length || suggestionList()?.length || historyList()?.length),
             }}
-            class="w-2 transition-height-200 h-0"></div>
-          <div class="w-max @[--lh:160] max-h-[--lh] flex overflow-hidden">
+            class="w-2 transition-height-200 h-0"
+          />
+          <div class="w-85vw min-w-800px @[--lh:160] max-h-[--lh] flex overflow-hidden">
             <BookmarkList list={bookmarkList()} />
             <SuggestionList list={suggestionList()} />
             <HistoryList list={historyList()} />

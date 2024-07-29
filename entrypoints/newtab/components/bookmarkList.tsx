@@ -6,7 +6,7 @@ import ListItem from './ListItem';
 export default function BookmarkList(props: { list?: Bookmarks.BookmarkTreeNode[] }) {
   return (
     <div
-      class="bg-bluegray-3/68 dark:bg-bluegray-8/68 backdrop-blur-sm rd-xl shadow-xl flex flex-col overflow-x-hidden overflow-y-auto scrollbar-none h-max max-h-[--lh] w-100 mr-8 listBox"
+      class="bg-bluegray-3/68 dark:bg-bluegray-8/68 backdrop-blur-sm rd-xl shadow-xl flex flex-col overflow-x-hidden overflow-y-auto scrollbar-none h-max max-h-[--lh] w-2.5/10 mr-8 listBox"
       classList={{ active: !!props.list?.length }}>
       <TransitionGroup name="group-item">
         <For each={props.list}>

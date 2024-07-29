@@ -60,7 +60,7 @@ export default function SearchLimit() {
                                   onChange={(e: any) => {
                                     setLimitKeyMap(value(), e.target.checked);
                                   }}>
-                                  <Switch.Control class="w-6 h-3 bg-dark-1 block rd-3 flex items-center  px-.5 data-[state=checked]:bg-orange data-[state=checked]:justify-end">
+                                  <Switch.Control class="w-6 h-3 bg-gray-2 dark:bg-dark-1 block rd-3 flex items-center  px-.5 data-[state=checked]:bg-orange data-[state=checked]:justify-end">
                                     <Switch.Thumb class="block s-2 rd-full bg-orange data-[state=checked]:bg-white" />
                                   </Switch.Control>
                                   <Switch.Label class="ml-1 pb-.5">
@@ -80,7 +80,7 @@ export default function SearchLimit() {
                           )}
                         </Index>
                         <TagsInput.Input
-                          class="b-none rd bg-gray-6 px-2 py-1 outline-none text-orange w-32"
+                          class="b-none rd bg-gray-3 dark:bg-gray-6 px-2 py-1 outline-none text-orange-6 dark:text-orange w-32 "
                           placeholder="输入关键字"
                         />
                         {/* <TagsInput.ClearTrigger>Clear All</TagsInput.ClearTrigger> */}

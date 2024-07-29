@@ -6,7 +6,7 @@ import ListItem from './ListItem';
 export default function SuggestionList(props: { list?: string[] }) {
   return (
     <div
-      class="bg-lightblue-2/68 dark:bg-dark/68 backdrop-blur-sm rd-xl shadow-xl flex flex-col overflow-hidden h-max max-h-[--lh] w-200 listBox"
+      class="bg-bluegray-3/68 dark:bg-bluegray-8/68 backdrop-blur-sm rd-xl shadow-xl flex flex-col overflow-hidden h-max max-h-[--lh] w-5/10 listBox"
       classList={{ active: !!props.list?.length }}>
       <TransitionGroup name="group-item">
         <For each={props.list}>
