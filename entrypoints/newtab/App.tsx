@@ -134,9 +134,14 @@ function App() {
   });
   return (
     <div
-      class="bg-cover min-w-1000px"
+      class="bg-cover min-w-1000px relative"
       classList={{ pageFocus: isFocus() }}
-      style={{ 'background-image': `url('${bingImgUrl()}')` }}>
+      style={{ 'background-image': `url('${bingImgUrl().img}')` }}>
+      <div
+        class="absolute bottom-2rem right-2rem transition-all-300 rd text-white/60 text-.6rem py-4px px-8px hover:bg-dark-6 hover:text-.75rem hover:text-white"
+        onClick={(e) => e.stopPropagation()}>
+        {bingImgUrl().desc || ''}
+      </div>
       <main class="f-c/c h-dvh searchMain dark:bg-dark/33">
         <div
           class="f-c/c flex-col p-xl absolute top-42"
