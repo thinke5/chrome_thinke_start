@@ -2,7 +2,7 @@
   "name": "信鸽起始页",
   "description": "信鸽起始页",
   "private": true,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "scripts": {
     "dev": "wxt",
